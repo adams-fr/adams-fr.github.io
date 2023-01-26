@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="bootstrap.min.css">
+
+        <style>
+
+            .container{
+                overflow: hidden;
+            }
+            .tab{
+                float: left;
+            }
+            .tab-2{
+                margin-left: 50px;
+            }
+            .tab-2 input{
+                display: block;
+                margin-bottom: 10px;
+            }
+            tr{
+                transition: all 0.25s ease-in-out;
+            }
+            tr:hover{
+                background-color: #EEE;
+                cursor: pointer;
+            }
+
+        </style>
+</head>
+<body>
+
+    
+
+  <div class="container">
+    <div class="tab tab-1">
+        <table id="table" class="table table-striped" border="1">
+        
+            
+                <tr>
+                    <th>designation</th>
+                    <th>heure</th>
+                    <th>qte</th>
+                </tr>
+                <tr>
+                    <td>A1</td>
+                    <td>B1</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>A3</td>
+                    <td>B3</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>A2</td>
+                    <td>B2</td>
+                    <td>20</td>
+                </tr>
+          
+        </table>
+    </div>
+    <div class="tab tab-2">
+        designation<input type="text" name="fname" id="fname">
+        heure<input type="text" name="lname" id="lname">
+        qte<input type="number" name="age" id="age">
+
+        <button onclick="addHtmlTableRow()">Add</button>
+        <button onclick="editHtmlRowToinput()">Edit</button>
+        <button onclick="removeSelectedRow()">Delete</button>
+    </div>
+  </div>
+
+
+    <script>
+
+var rIndex, 
+table = document.getElementById('table');
+
+
+        function checkEmpty(){
+            var isEmpty = false,
+            fname = document.getElementById('fname').value,
+            lname = document.getElementById('lname').value,
+            age = document.getElementById('age').value;
+
+            if(fname === ""){
+                alert("first name cannot be empty");
+                isEmpty = true;
+            }
+            else if(lname === ""){
+                alert("last name cannot be empty");
+                isEmpty = true;
+            }
+            else if(age === ""){
+                alert("age cannot be empty");
+                isEmpty = true;
+            }
+            return isEmpty;
+        }
+
+        function addHtmlTableRow(){
+
+            if(!checkEmpty()){
+        var
+            newRow = table.insertRow(table.length),
+            cell1 = newRow.insertCell(0),
+            cell2 = newRow.insertCell(1),
+            cell3 = newRow.insertCell(2),
+            fname = document.getElementById('fname').value,
+            lname = document.getElementById('lname').value,
+            age = document.getElementById('age').value;
+
+            cell1.innerHTML = fname;
+            cell2.innerHTML = lname;
+            cell3.innerHTML = age;
+
+            selectdRowToInput();
+        }
+        }
+
+        function selectdRowToInput(){
+            
+            for(var i=1; i<table.rows.length; i++){
+                table.rows[i].onclick = function()
+                {
+                    rIndex = this.rowIndex;
+                    document.getElementById('fname').value = this.cells[0].innerHTML;
+                    document.getElementById('lname').value = this.cells[1].innerHTML;
+                    document.getElementById('age').value = this.cells[2].innerHTML;
+                }
+            };
+        }
+        selectdRowToInput();
+
+        function editHtmlRowToinput(){
+            var fname = document.getElementById('fname').value;
+            lname = document.getElementById('lname').value;
+            age = document.getElementById('age').value;
+
+            table.rows[rIndex].cells[0].innerHTML = fname;
+            table.rows[rIndex].cells[1].innerHTML = lname;
+            table.rows[rIndex].cells[2].innerHTML = age;
+        }
+
+        function removeSelectedRow(){
+            table.deleteRow(rIndex);
+            // clear 
+          document.getElementById('fname').value = "";
+             document.getElementById('lname').value = "";
+           document.getElementById('age').value = "";
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivarr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+crossorigin="anonymous"></script>
+<script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>

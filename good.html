@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+    
+            margin: 0;
+            padding: 0;
+            background-color: rgb(39, 39, 95);
+            color: white;
+        }
+    
+        header {
+            box-shadow: 1px 4px 4px 0 #ff00002b;
+            background-color: aqua;
+            height: 90px;
+            position: sticky;
+            top: 0;
+
+        }
+
+      .slide{
+        transform: translateX(100%);
+      }
+
+     .logo{
+        /* background-color: red; */
+        display: flex;
+       
+     
+     }
+     .logo a{
+        text-decoration: none;
+        padding: 5px;
+        font-size: clamp(1rem, 5vw, 2rem);
+        transition: color 0.5s;
+     }
+     .logo a:hover{
+        color: yellow;
+     }
+     .navbar{
+        height: 90px;
+        display: flex;
+        align-items: center;
+        
+     }
+     .navbar a{
+        display: flex;
+        justify-content: space-between;
+     }
+
+     .nav-ul a{
+        /* background-color: red; */
+        color: black;
+        text-decoration: none;
+        padding: 5px;
+        font-size: 18px; 
+        transition: color 0.5s;
+       
+     }
+     .nav-ul a:hover{
+        color: red;
+        animation: flou 0.5s;
+        border-radius: -5px;
+        background-color : rgba(192, 127, 6, 0.4);
+     }
+
+     .navbar .nav-ul{
+        list-style: none;
+        display: flex;
+        position: fixed;
+        right: 0;
+        padding: 60px;
+       
+ 
+     }
+ 
+    h1{
+        font-style: italic;
+        text-align: center;
+    }
+    article img{
+        display: block; 
+         margin-left: auto;
+        margin-right: auto;
+
+        width: 90px;
+        transition: all 0.5s;
+
+    }
+    article img:hover{
+        border-radius: 10px;
+    }
+        
+        footer{
+            box-shadow: 1px -4px 4px 0 #ff00002b;
+            background-color: black;
+            height: 100px;
+            text-align: center;
+         
+            width: 100%;
+          
+        }
+        .hambuger{
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            right: 0;
+            padding: 5px;
+            height: 40px;
+        }
+       
+        .bar1, .bar2, .bar3{
+            height: 10px;
+            width: 40px;
+            margin: 4px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .open .bar1,
+        .open .bar2,
+        .open .bar3{
+            background-color: yellow;
+        }
+
+        .open .bar1{
+            transform: translateY(200%) rotate(-55deg);
+        }
+        .open .bar2{
+            transform: rotate(55deg);
+            opacity: 0;
+        }
+        .open .bar3{
+            transform: translateY(-300%) rotate(55deg);
+        }
+
+
+        @keyframes flou{
+            from{
+                transform: translateX(-20px) scale(1.5);
+                filter: blur(2px);
+            }
+            to{
+                transform: translateX(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+
+         @media (max-width : 800px){
+            .hambuger{
+                display: flex;
+            }
+
+
+            
+   
+     .nav-ul a:hover{
+        color: red;
+        animation: none;
+       
+     }
+     .nav-ul {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 60px;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: column;
+        left: -10%;
+        margin-left: -60px;
+
+     }
+     .nav-ul a{
+        height: 60px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        border-bottom:1px solid rgba(192, 127, 6, 0.3);
+        font-size: 1.5rem;
+        padding: 5px;
+        margin-left: 70px;
+        text-align: center;
+        color: white;
+        width: 50%;
+        transition: all 0.5s;
+        
+      
+     }
+
+        }
+
+
+
+    
+    </style>
+
+</head>
+
+<body>
+    
+    <header>
+        
+    <nav class="navbar">
+        <div class="logo"><a href="">MySite</a></div>
+        <ul class="nav-ul" id="closer">
+            <li><a href="">Accueil</a></li>
+            <li><a href="">Tutos</a></li>
+            <li><a href="">Cours</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+
+        <div class="hambuger" id="hambuger">
+            <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        </div>
+        
+    </nav>
+
+    </header>
+    <h1>Mon site arrive</h1>
+    <article>
+        <img src="https://picsum.photos/600/200" alt="random img">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, quidem magnam veniam id tempora aut ex consequatur a perferendis. Non iusto voluptatum obcaecati sapiente quos eum molestiae, quam illo labore quasi accusamus dolorum fugiat, laudantium itaque ea error! Dolorem ut recusandae cumque veniam, quaerat est praesentium consequatur at ratione distinctio nemo, cum dicta ab, ipsam aperiam hic neque. Autem ratione tempore expedita. Corrupti saepe sint quos quo, aliquam ipsam laudantium? </p>
+    </article>
+    <article>
+        <img src="https://picsum.photos/601/200" alt="random img">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, quidem magnam veniam id tempora aut ex consequatur a perferendis. Non iusto voluptatum obcaecati sapiente quos eum molestiae, quam illo labore quasi accusamus dolorum fugiat, laudantium itaque ea error! Dolorem ut recusandae cumque veniam, quaerat est praesentium consequatur at ratione distinctio nemo, cum dicta ab, ipsam aperiam hic neque. Autem ratione tempore expedita. Corrupti saepe sint quos quo, aliquam ipsam laudantium? </p>
+    </article>
+    <article>
+        <img src="https://picsum.photos/602/200" alt="random img">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, quidem magnam veniam id tempora aut ex consequatur a perferendis. Non iusto voluptatum obcaecati sapiente quos eum molestiae, quam illo labore quasi accusamus dolorum fugiat, laudantium itaque ea error! Dolorem ut recusandae cumque veniam, quaerat est praesentium consequatur at ratione distinctio nemo, cum dicta ab, ipsam aperiam hic neque. Autem ratione tempore expedita. Corrupti saepe sint quos quo, aliquam ipsam laudantium? </p>
+    </article>
+    <article>
+        <img src="https://picsum.photos/603/200" alt="random img">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, quidem magnam veniam id tempora aut ex consequatur a perferendis. Non iusto voluptatum obcaecati sapiente quos eum molestiae, quam illo labore quasi accusamus dolorum fugiat, laudantium itaque ea error! Dolorem ut recusandae cumque veniam, quaerat est praesentium consequatur at ratione distinctio nemo, cum dicta ab, ipsam aperiam hic neque. Autem ratione tempore expedita. Corrupti saepe sint quos quo, aliquam ipsam laudantium? </p>
+    </article>
+
+    <footer>
+        &copy;Adam's<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo molestiae voluptatibus non voluptatum reiciendis aut voluptatem sunt reprehenderit nisi fugiat. Distinctio autem eaque eos quidem neque dignissimos, corrupti earum quae.</p>
+    </footer>
+
+
+    <script>
+
+        hambuger.onclick = () =>{
+            hambuger.classList.toggle('open');
+            closer.classList.toggle('slide');
+        }
+
+
+    </script>
+
+
+</body>
+</html>

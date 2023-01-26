@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="bootstrap.min.css">
+
+        <style>
+
+            .container{
+                overflow: hidden;
+            }
+            .tab{
+                float: left;
+            }
+            .tab-2{
+                margin-left: 50px;
+            }
+            .tab-2 input{
+                display: block;
+                margin-bottom: 10px;
+            }
+            tr{
+                transition: all 0.25s ease-in-out;
+            }
+            tr:hover{
+                background-color: #EEE;
+                cursor: pointer;
+            }
+
+        </style>
+</head>
+<body>
+
+    <h2>INSTALLATION SOLAIRE DOMESTIQUE</h2><br>
+    <P>Pas besion d'etre un expert pour connaitre toutes les etapes INSTALLATIONS SOLAIRES DOMESTIQUES, l'application vous oriente dans chaque etape </P>
+       <P style="color: red;"> NB: les cases qui ne seront pas utilisees dans le tableau completez les par des zeros</P><br>
+    <p class="para"><strong>1.ETAPE : Trouvez la puissance journaliere des equipes et l'energie consommee</strong> </p>
+
+  <div class="container">
+    <div class="tab tab-1">
+        <table id="table" class="table table-striped" border="1">
+        
+            
+                <tr>
+                    <th>APPAREILLAGES</th>
+                    <th>PUISSANCE EN (WATT)</th>
+                    <th>TEMP D'UTILISATION EN (HEURE)</th>
+                    <th>ENERGIE CONSOMMER (EC = P*t)</th>
+                </tr>
+                <tr>
+                    <td>A1</td>
+                    <td>b1</td>
+                    <td>10</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>A3</td>
+                    <td>e3</td>
+                    <td>30</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>A2</td>
+                    <td>g2</td>
+                    <td>20</td>
+                    <td>100</td>
+                </tr>
+               
+          
+        </table>
+        <table class="table table-striped">
+        <tr>
+            <th>RESULTAT GLOBAL</th>
+            <th id="minV"></th>
+    
+       
+    
+            <th></th>
+            <th></th>
+   
+            </tr>
+            <tr>
+                   
+                </tr>
+     </table><br>
+        <tr>
+            <td>
+                
+                <button onclick="getMin()">calcul</button>
+            </td>
+        </tr>
+    </div>
+
+    <div class="tab tab-2">
+        Appareillage<input type="text" name="fname" id="fname">
+        Puissance<input type="text" name="lname" id="lname">
+        Heure<input type="number" name="age" id="age">
+        <!-- EC<input type="text" name="ec" id="ec"> -->
+        
+
+        
+
+        <button onclick="addHtmlTableRow()">Add</button>
+        <button onclick="editHtmlRowToinput()">Edit</button>
+        <button onclick="removeSelectedRow()">Delete</button>
+    </div>
+  </div>
+
+
+    <script>
+
+var rIndex, 
+table = document.getElementById('table');
+
+
+        function checkEmpty(){
+            var isEmpty = false,
+            fname = document.getElementById('fname').value,
+            lname = document.getElementById('lname').value,
+            age = document.getElementById('age').value;
+
+            if(fname === ""){
+                alert("first name cannot be empty");
+                isEmpty = true;
+            }
+            else if(lname === ""){
+                alert("last name cannot be empty");
+                isEmpty = true;
+            }
+            else if(age === ""){
+                alert("age cannot be empty");
+                isEmpty = true;
+            }
+            return isEmpty;
+        }
+
+        function addHtmlTableRow(){
+
+            if(!checkEmpty()){
+        var
+            newRow = table.insertRow(table.length),
+            cell1 = newRow.insertCell(0),
+            cell2 = newRow.insertCell(1),
+            cell3 = newRow.insertCell(2),
+            cell4 = newRow.insertCell(3),
+            fname = document.getElementById('fname').value,
+            lname = document.getElementById('lname').value,
+            age = document.getElementById('age').value;
+            // ec = document.getElementById('ec').value;
+
+            // document.getElementById('calcul').value =lname*age;
+            
+
+            cell1.innerHTML = fname;
+            cell2.innerHTML = lname;
+            cell3.innerHTML = age;
+            // cell4.innerHTML = ec;
+
+            selectdRowToInput();
+        }
+        }
+
+        function selectdRowToInput(){
+            
+            for(var i=1; i<table.rows.length; i++){
+                table.rows[i].onclick = function()
+                {
+                    rIndex = this.rowIndex;
+                    document.getElementById('fname').value = this.cells[0].innerHTML;
+                    document.getElementById('lname').value = this.cells[1].innerHTML;
+                    document.getElementById('age').value = this.cells[2].innerHTML;
+                    document.getElementById('ec').value = this.cells[3].innerHTML;
+                }
+            };
+        }
+        selectdRowToInput();
+
+        function editHtmlRowToinput(){
+            var fname = document.getElementById('fname').value;
+            lname = document.getElementById('lname').value;
+            age = document.getElementById('age').value;
+            // age = document.getElementById('ec').value;
+
+            table.rows[rIndex].cells[0].innerHTML = fname;
+            table.rows[rIndex].cells[1].innerHTML = lname;
+            table.rows[rIndex].cells[2].innerHTML = age;
+            // table.rows[rIndex].cells[3].innerHTML = ec;
+        }
+
+        function removeSelectedRow(){
+            table.deleteRow(rIndex);
+            // clear 
+          document.getElementById('fname').value = "";
+             document.getElementById('lname').value = "";
+           document.getElementById('age').value = "";
+           document.getElementById('ec').value = "";
+        }
+
+            var table = document.getElementById('table');
+            function getMin(){
+                 minval =0;
+                 age = document.getElementById('age').value;
+                for (var i = 0; i < table.rows.length; i++) {
+                    
+                        minval = minval + age[i];
+                        // $sommepu = $sommepu + $note1[$i];
+                    
+                }
+                console.log(minval);
+            }
+
+
+    </script>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivarr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+crossorigin="anonymous"></script>
+<script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>

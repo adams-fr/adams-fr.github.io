@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* label{
+            display: flex;
+            min-width: 200px;
+        } */
+
+        
+
+    </style>
+
+</head>
+<body>
+
+
+
+    <input type="text" id="n1"><br><br>
+    <input type="text" id="n2"><br><br>
+
+    <select id="operators">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+
+    </select>
+
+
+    <input type="text" id="resultat">
+    <button onclick="calc();">=</button><br><br>
+
+    <p>bonjour les amis -----------------------------------------------------------------------</p>
+
+
+    <input type="text" id="n3"><br><br>
+    <input type="text" id="n4"><br><br>
+
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+
+    </select>
+
+
+    <input type="text" id="result">
+    <button onclick="calcul();">=</button>
+<!--     
+        <form action="script.php" method="post">
+
+            <label for="">Prenom</label>
+            <input type="text" name="prenom" id="prenom" maxlength="20" required>
+            <span id="prenom_manquant"></span>
+            <label for="">Email</label>
+            <input type="text" name="email" id="mail" required>
+
+            <label for="">telephone</label>
+            <input type="text" name="tel" id="tel" required><br><br>
+
+            <inpUt type="submit" value="valider" id="bouton_envoi">
+        </form> -->
+
+       
+
+   
+
+    <script>
+
+
+        function calc(){
+            var n1 = parseFloat(document.getElementById('n1').value);
+            var n2 = parseFloat(document.getElementById('n2').value);
+            var oper = document.getElementById('operators').value;
+
+            if(oper === '+'){
+
+                 document.getElementById('resultat').value = n1+n2;
+
+            }
+            if(oper === '-'){
+
+document.getElementById('resultat').value = n1-n2;
+
+}
+if(oper === '*'){
+
+document.getElementById('resultat').value = n1*n2;
+
+}
+if(oper === '/'){
+
+document.getElementById('resultat').value = n1/n2;
+
+}
+        }
+
+
+
+
+
+
+
+        
+        function calcul(){
+            var n3 = parseFloat(document.getElementById('n3').value);
+            var n4 = parseFloat(document.getElementById('n4').value);
+            var oper = document.getElementById('operator').value;
+
+            if(oper === '+'){
+
+                 document.getElementById('result').value = n3+n4;
+
+            }
+            if(oper === '-'){
+
+document.getElementById('resultat').value = n3-n4;
+
+}
+if(oper === '*'){
+
+document.getElementById('resultat').value = n3*n4;
+
+}
+if(oper === '/'){
+
+document.getElementById('resultat').value = n3/n4;
+
+}
+        }
+
+    //     var validation = document.getElementById('bouton_envoi');
+    //    var prenom_m= document.getElementById('prenom_manquant');
+    //    var prenom = document.getElementById('prenom');
+    //     var prenom_v= /^[a-zA-ZéèîÉÈÎï][a-zéèêàçïî]+([-'\s][a-zA-ZéèîÉÈÎï][a-zéèêàçïî]+)?/;
+
+    //     validation.addEventListener('click', f_valid);
+    //     function f_valid(e){
+    //         if(prenom.validity.valueMissing){
+    //             e.preventDefault();
+    //             prenom_m.textContent = "prenom manquant";
+    //             prenom_m.style.color = "red";
+    //         }else if(prenom_v.test(prenom.value) == false)
+    //         {
+    //             event.preventDefault();
+    //             prenom_m.textContent = 'format incorrect';
+    //             prenom_m.style.color = 'orange';
+    //         }
+    //         else{
+                 
+    //         }
+    //     }
+
+  
+
+    </script>
+
+
+
+</body>
+</html>
